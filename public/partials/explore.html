@@ -1,0 +1,24 @@
+<div class="storyHeaders">
+
+  <h1>Find Something!</h1>
+
+</div>
+<div id="storeDisplay">
+
+  <div class="itemCells" ng-repeat="item in items">
+
+    <div class="itemInfo">
+
+      <h4>{{ item.title }}</h4>
+      <p>
+        ${{ item.price }}
+      </p>
+      <p>
+        Left in stock: {{ item.inventory }}
+      </p>
+
+    </div>
+
+  </div>
+
+</div>
