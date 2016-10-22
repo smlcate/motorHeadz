@@ -14,5 +14,13 @@ app.config(function($stateProvider, $urlRouterProvider) {
           url: '/explore',
           templateUrl: './partials/explore.html'
       })
+      .state('admin', {
+          url: '/admin',
+          templateUrl: './partials/admin.html'
+      })
+      .state('authenticate', {
+          url: '/signin',
+          templateUrl: './partials/authenticate.html'
+      })
 
 });

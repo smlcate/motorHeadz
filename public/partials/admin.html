@@ -1,0 +1,38 @@
+<div id="adminDisplay">
+
+  <input type="text" name="itemTitleInput" value="" ng-model="itemTitleInput" placeholder="Title">
+  <input type="text" name="itemDescription Input" value="" ng-model="itemDescriptionInput" placeholder="Description">
+  <input type="number" name="itemPriceInput" value="" ng-model="itemPriceInput" placeholder="0">
+  <input type="number" name="itemInventoryInput" value="" ng-model="itemInventoryInput" placeholder="0">
+  <input type="text" name="itemImgInput" value="" ng-model="itemImgInput" placeholder="Image">
+
+
+</div>
+<div id="storeDisplay">
+
+  <div id="storeDisplay">
+
+    <div class="itemCells" ng-repeat="item in items">
+
+      <div class="itemInfo">
+
+        <h4>{{ item.title }}</h4>
+        <p>
+          ${{ item.price }}
+        </p>
+        <p>
+          Left in stock: {{ item.inventory }}
+        </p>
+
+      </div>
+      <div class="itemImages">
+
+        <img ng-src="{{ item.img }}" alt="" />
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
