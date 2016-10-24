@@ -5,6 +5,8 @@
     "node": "5.9.1"
   },
   "dependencies": {
+    "bcrypt": "^0.8.7",
+    "dotenv": "^2.0.0",
     "ejs": "2.4.1",
     "express": "^4.13.3",
     "express-bearer-token": "^2.1.0",

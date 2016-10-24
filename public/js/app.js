@@ -18,9 +18,13 @@ app.config(function($stateProvider, $urlRouterProvider) {
           url: '/admin',
           templateUrl: './partials/admin.html'
       })
-      .state('authenticate', {
+      .state('signup', {
+          url: '/signup',
+          templateUrl: './partials/signup.html'
+      })
+      .state('signin', {
           url: '/signin',
-          templateUrl: './partials/authenticate.html'
+          templateUrl: './partials/signin.html'
       })
 
 });

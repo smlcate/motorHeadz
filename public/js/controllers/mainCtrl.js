@@ -1,4 +1,7 @@
-app.controller('mainCtrl', function($scope) {
+app.controller('mainCtrl', ['$scope','$http', function($scope) {
+
+  $scope.user = localStorage;
+
   $scope.items = [
     {
       title: 'Dirt Bike',
@@ -54,5 +57,10 @@ app.controller('mainCtrl', function($scope) {
       inventory: 5,
       img: "https://optibike.com/wp-content/uploads/2015/02/gas-moped.png"
     },
-  ]
-})
+  ];
+
+  $scope.submit = function() {
+    console.log(emailInput)
+  }
+
+}])
