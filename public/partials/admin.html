@@ -12,16 +12,6 @@
         <input type="text" name="itemDescriptionInput" id="descriptionInput" value="" ng-model="frm.itemDescriptionInput" placeholder="Description">
         <input type="text" name="itemImgInput" value="" ng-model="frm.itemImgInput" placeholder="Image">
 
-
-
-        <!-- <div>Crop Image and Upload</div>
-        <button ngf-select ng-model="picFile" accept="image/*"> Select Picture</button>
-        <div ngf-drop id="imgEditorPreview" ng-model="picFile" ngf-pattern="image/*" class="cropArea">
-            <img-crop image="picFile  | ngfDataUrl" result-image="croppedDataUrl" ng-init="croppedDataUrl=''"></img-crop>
-        </div>
-
-        <button ng-click="upload(croppedDataUrl, picFile.name)">Submit</button> -->
-
       </div>
 
       <div id="toprightAdminDisplay">
@@ -47,32 +37,41 @@
 
 
 
-</div>
-<div id="storeDisplay">
-
   <div id="storeDisplay">
 
-    <div class="itemCells" ng-repeat="item in items">
+    <div id="storeDisplay">
 
-      <div class="itemInfo">
+      <div class="itemCells" ng-repeat="item in items">
 
-        <h4>{{ item.title }}</h4>
-        <p>
-          ${{ item.price }}
-        </p>
-        <p>
-          Left in stock: {{ item.inventory }}
-        </p>
+        <div class="itemCellHeader">
+          <button type="button" name="deleteItem" ng-click="delete(item)">X</button>
+        </div>
 
-      </div>
-      <div class="itemImages">
+        <div class="itemCellBody">
 
-        <img ng-src="{{ item.img }}" alt="" />
+          <div class="">
+
+            <h4>{{ item.title }}</h4>
+            <p>
+              ${{ item.price }}
+            </p>
+            <p>
+              Left in stock: {{ item.inStock }}
+            </p>
+
+          </div>
+
+          <div class="itemImages">
+
+            <img ng-src="{{ item.image }}" alt="" />
+
+          </div>
+
+        </div>
 
       </div>
 
     </div>
 
   </div>
-
 </div>

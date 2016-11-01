@@ -4,13 +4,23 @@ var app = express();
 var knex = require('./db/knex');
 var bodyParser = require('body-parser');
 
-var server = require('./controllers/main.js')
+var server = {
+  main: require('./controllers/main.js'),
+  admin: require('./controllers/admin.js')
+}
+
 
 app.use(express.static('public'));
 app.use(bodyParser.json());
 
-app.post('/signup', server.signUp)
-app.post('/signin', server.signIn)
+
+app.post('/signup', server.main.signUp)
+app.post('/signin', server.main.signIn)
+
+app.get('/getItems', server.admin.getItems)
+app.post('/addItem', server.admin.addItem)
+
+
 
 
 app.set('port', process.env.PORT || 3000);

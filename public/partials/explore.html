@@ -18,7 +18,7 @@
       </div>
       <div class="">
 
-        <img src="{{currentItem.img}}" alt="" />
+        <img ng-src="{{currentItem.image}}" alt="" />
 
         <div class="itemFooter">
 
@@ -59,22 +59,27 @@
 
   <div class="itemCells" ng-repeat="item in items | filter:search" ng-click="selectItem(item)">
 
-    <div class="itemInfo" >
+    <div class="itemCellBody">
 
-      <h4>{{ item.title }}</h4>
-      <p>
-        ${{ item.price }}
-      </p>
-      <p>
-        Left in stock: {{ item.inventory }}
-      </p>
+      <div class="itemInfo" >
+
+        <h4>{{ item.title }}</h4>
+        <p>
+          ${{ item.price }}
+        </p>
+        <p>
+          Left in stock: {{ item.inStock }}
+        </p>
+
+      </div>
+      <div class="itemImages">
+
+        <img ng-src="{{ item.image }}" alt="" />
+
+      </div>
 
     </div>
-    <div class="itemImages">
 
-      <img ng-src="{{ item.img }}" alt="" />
-
-    </div>
 
   </div>
 
