@@ -1,13 +1,65 @@
 <div class="storyHeaders">
 
-  <h1>Find Something!</h1>
+  <div id="itemInfoContainer" ng-if="currentItem">
+
+    <div id="itemInfo" ng-if="currentItem">
+
+
+      <div class="">
+
+        <h1>{{ currentItem.title }}</h1>
+
+        <h3>
+          {{ currentItem.description }}
+        </h3>
+
+        <h4>${{ currentItem.price }}</h4>
+
+      </div>
+      <div class="">
+
+        <img src="{{currentItem.img}}" alt="" />
+
+        <div class="itemFooter">
+
+          <p>
+            In Stock
+          </p>
+          <div type="button" name="button" ng-click="addToCart(currentItem)"><i class="material-icons">add_shopping_cart</i></div>
+          <div type="button" name="button" ng-click="goToCheckOut()"><i class="material-icons">shopping_cart</i></div>
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+    <div id="shoppingCartButton">
+      <i class="material-icons md-36">shopping_cart</i>
+    </div>
+
+  </div>
+
+
 
 </div>
+
+<div id="storeDisplayheader">
+
+  <input type="text" name="name" value="" ng-model="search.title" placeholder="Search">
+
+  <!-- <label>min-price<input type="number" name="name" value="" ng-model="search.minPrice"></label>
+  <label>max-price<input type="number" name="name" value="" ng-model="search.maxPrice"></label> -->
+
+</div>
+
 <div id="storeDisplay">
 
-  <div class="itemCells" ng-repeat="item in items">
 
-    <div class="itemInfo">
+  <div class="itemCells" ng-repeat="item in items | filter:search" ng-click="selectItem(item)">
+
+    <div class="itemInfo" >
 
       <h4>{{ item.title }}</h4>
       <p>
