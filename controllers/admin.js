@@ -27,6 +27,7 @@ exports.addItem = function(req, res, next) {
     title: req.body.frm.itemTitleInput,
     make: req.body.frm.itemMakeInput,
     model: req.body.frm.itemModelInput,
+    description: req.body.frm.itemDescriptionInput,
     image: req.body.frm.itemImgInput,
     price: req.body.frm.itemPriceInput,
     inStock: req.body.frm.itemInventoryInput

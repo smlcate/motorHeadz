@@ -1,19 +1,24 @@
 <div class="storyHeaders">
 
-  <div id="itemInfoContainer" ng-if="currentItem">
+  <div id="itemInfoContainer">
 
     <div id="itemInfo" ng-if="currentItem">
 
 
-      <div class="">
+      <div class="itemDescription">
 
-        <h1>{{ currentItem.title }}</h1>
+        <div class="itemDescriptionHeader">
 
-        <h3>
+          <h2>{{ currentItem.make }} - {{ currentItem.model }}</h2>
+
+          <h4>${{ currentItem.price }}</h4>
+
+        </div>
+
+        <p>
           {{ currentItem.description }}
-        </h3>
+        </p>
 
-        <h4>${{ currentItem.price }}</h4>
 
       </div>
       <div class="">
@@ -35,9 +40,6 @@
 
     </div>
 
-    <div id="shoppingCartButton">
-      <i class="material-icons md-36">shopping_cart</i>
-    </div>
 
   </div>
 
@@ -63,7 +65,9 @@
 
       <div class="itemInfo" >
 
-        <h4>{{ item.title }}</h4>
+        <h4>{{ item.make }}</h4>
+        <h5>{{ item.model }}</h5>
+
         <p>
           ${{ item.price }}
         </p>

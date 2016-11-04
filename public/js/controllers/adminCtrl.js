@@ -36,6 +36,16 @@ app.controller('adminCtrl', ['$scope', '$http', 'Upload', '$timeout', function($
 
   $scope.select = function(item) {
     console.log(item);
+    $('#itemTitleInput').val(item.title)
+    $('#itemMakeInput').val(item.make)
+    $('#itemModelInput').val(item.model)
+    $('#itemDescriptionInput').val(item.description)
+    $('#itemImgInput').val(item.image)
+    $('#imgPreviewImg').attr('src',item.image)
+    $('#itemPriceInput').val(item.price)
+    $('#itemInventoryInput').val(item.inStock)
+
+
   }
 
 

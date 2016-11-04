@@ -6,11 +6,11 @@
 
       <div id="topleftAdminDisplay">
 
-        <input type="text" name="itemTitleInput" value="" ng-model="frm.itemTitleInput" placeholder="Title">
-        <input type="text" name="itemMakeUnput" value="" ng-model="frm.itemMakeInput" placeholder="Make">
-        <input type="text" name="itemModelUnput" value="" ng-model="frm.itemModelInput" placeholder="Model">
-        <input type="text" name="itemDescriptionInput" id="descriptionInput" value="" ng-model="frm.itemDescriptionInput" placeholder="Description">
-        <input type="text" name="itemImgInput" value="" ng-model="frm.itemImgInput" placeholder="Image">
+        <!-- <input type="text" name="itemTitleInput" value="" id="itemTitleInput" ng-model="frm.itemTitleInput" placeholder="Title"> -->
+        <input type="text" name="itemMakeUnput" value="" id="itemMakeInput" ng-model="frm.itemMakeInput" placeholder="Make">
+        <input type="text" name="itemModelUnput" value="" id="itemModelInput" ng-model="frm.itemModelInput" placeholder="Model">
+        <input type="text" name="itemDescriptionInput" id="itemDescriptionInput" value="" ng-model="frm.itemDescriptionInput" placeholder="Description">
+        <input type="text" name="itemImgInput" value="" id="itemImgInput" ng-model="frm.itemImgInput" placeholder="Image">
 
       </div>
 
@@ -18,11 +18,11 @@
 
 
         <div id="imgPreview">
-            <img ng-src="{{frm.itemImgInput}}" />
+            <img id="imgPreviewImg" ng-src="{{frm.itemImgInput}}" />
         </div>
 
-        <input type="number" name="itemPriceInput" value="" ng-model="frm.itemPriceInput" placeholder="0">
-        <input type="number" name="itemInventoryInput" value="" ng-model="frm.itemInventoryInput" placeholder="0">
+        <input type="number" name="itemPriceInput" value="" id="itemPriceInput" ng-model="frm.itemPriceInput" placeholder="0">
+        <input type="number" name="itemInventoryInput" value="" id="itemInventoryInput" ng-model="frm.itemInventoryInput" placeholder="0">
 
 
       </div>
@@ -41,9 +41,13 @@
 
     <div id="storeDisplay">
 
-      <div class="itemCells" ng-repeat="item in items">
+      <div class="itemCells" ng-repeat="item in items" ng-click="select(item)">
+
 
         <div class="itemCellHeader">
+
+          <h4>{{ item.model }}</h4>
+
           <button type="button" name="deleteItem" ng-click="delete(item)">X</button>
         </div>
 
@@ -51,7 +55,7 @@
 
           <div class="">
 
-            <h4>{{ item.title }}</h4>
+            <h5>{{ item.make }}</h5>
             <p>
               ${{ item.price }}
             </p>

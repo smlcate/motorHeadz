@@ -5,6 +5,7 @@ exports.up = function(knex, Promise) {
     table.string('title');
     table.string('make');
     table.string('model');
+    table.text('description');
     table.text('image');
     table.integer('price');
     table.integer('inStock');

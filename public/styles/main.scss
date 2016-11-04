@@ -39,9 +39,34 @@ main {
 
 #itemInfoContainer {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   box-shadow: 0px 1px 3px 1px;
+  height: 25%;
 
+}
+
+.itemDescription {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 10px;
+  height: 100%;
+}
+
+.itemDescriptionHeader {
+  display: flex;
+  flex-direction: column;
+  height: 20%;
+}
+
+.itemDescriptionHeader h2 {
+  margin-top: 0px;
+  // height: 30px;
+  // margin-bottom: 0px;
+}
+
+.itemDescriptionHeader h4 {
+  margin-top: -20px;
 }
 
 #itemInfo {
@@ -217,8 +242,10 @@ form .progress {
 
 .itemCellHeader {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  align-items: center;
   padding-bottom: 10px;
+  height: 30px;
 }
 
 .itemCellHeader button {
