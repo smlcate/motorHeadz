@@ -26,5 +26,9 @@ app.config(function($stateProvider, $urlRouterProvider) {
           url: '/signin',
           templateUrl: './partials/signin.html'
       })
+      .state('checkout', {
+          url: '/checkout',
+          templateUrl: './partials/checkout.html'
+      })
 
 });
