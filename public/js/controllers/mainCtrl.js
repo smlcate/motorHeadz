@@ -6,6 +6,8 @@ app.controller('mainCtrl', ['$scope','$http', function($scope, $http) {
 
   $scope.shoppingCart = [];
 
+  $scope.cartTotal = 0;
+
   $scope.items = [];
 
   var init = function() {
@@ -159,6 +161,14 @@ app.controller('mainCtrl', ['$scope','$http', function($scope, $http) {
 
   $scope.addToCart = function(item) {
     $scope.shoppingCart.push(item);
+    $scope.cartTotal += item.price;
+    console.log($scope.shoppingCart);
+  }
+
+  $scope.removeFromCart = function(item) {
+    var i = $scope.shoppingCart.indexOf(item);
+    $scope.shoppingCart.splice(i, 1);
+    $scope.cartTotal -= item.price;
     console.log($scope.shoppingCart);
   }
 

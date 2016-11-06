@@ -39,10 +39,15 @@ main {
 
 #itemInfoContainer {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   box-shadow: 0px 1px 3px 1px;
   height: 25%;
 
+}
+
+#itemInfo {
+  width: 65%;
+  border-right: 1px solid black;
 }
 
 .itemDescription {
@@ -51,6 +56,7 @@ main {
   justify-content: flex-start;
   padding: 10px;
   height: 100%;
+  width: 65%;
 }
 
 .itemDescriptionHeader {
@@ -70,7 +76,7 @@ main {
 }
 
 #itemInfo {
-  width:50%;
+  width:65%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -111,6 +117,49 @@ main {
 #shoppingCartButton i {
   width: 40px;
 }
+
+#shoppingCartDisplay {
+  width: 33%;
+}
+
+#shoppingCart {
+  height: 75%;
+  border-bottom: 1px solid black;
+  overflow-y: scroll;
+}
+
+#shoppingCartFooter {
+  height: 25%;
+  border-bottom: 1px solid black;
+  display: flex;
+  align-items: center;
+}
+
+.shoppingCartItemCell {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 30px;
+  // background: blue;
+}
+
+.shoppingCartItemCell h5 {
+  width: 30%;
+}
+
+.shoppingCartItemCell p {
+  width: 30%;
+}
+
+.shoppingCartItemCell #removeBtn {
+  width: 20px;
+  height: 20px;
+  border: none;
+  background: red;
+  color: white;
+  text-align: center;
+}
+
 
 #adminForm {
   display: flex;
