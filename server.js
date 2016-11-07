@@ -6,7 +6,8 @@ var bodyParser = require('body-parser');
 
 var server = {
   main: require('./controllers/main.js'),
-  admin: require('./controllers/admin.js')
+  admin: require('./controllers/admin.js'),
+  checkout: require('./controllers/checkout.js')
 }
 
 
@@ -19,6 +20,8 @@ app.post('/signin', server.main.signIn)
 
 app.get('/getItems', server.admin.getItems)
 app.post('/addItem', server.admin.addItem)
+
+app.post('/checkout', server.checkout.submit)
 
 
 

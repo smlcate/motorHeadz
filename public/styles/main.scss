@@ -1,5 +1,7 @@
 body {
   width: 100%;
+  background: #212121;
+
 }
 
 header {
@@ -9,7 +11,13 @@ header {
   justify-content: space-around;
   align-items: center;
   margin-left: -7px;
-  border-bottom: 1px solid black;
+  background: #212121;
+  color: #FAFAFA;
+}
+
+header a {
+  color: #FAFAFA;
+  text-decoration: none;
 }
 
 header h2 {
@@ -28,6 +36,9 @@ header nav ul li {
 main {
   height: 95%;
   overflow-y: scroll;
+  background: #FAFAFA;
+  width: 100vw;
+  margin-left: -7px;
 }
 
 #storeDisplay {
