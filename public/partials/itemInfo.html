@@ -1,0 +1,32 @@
+<div id="infoDisplay">
+
+
+  <div class="imgContainer">
+
+    <img ng-src="{{ currentItem.image }}" alt="" />
+
+  </div>
+
+
+  <div class="infoContainer">
+
+    <h1>{{ currentItem.make }} {{currentItem.model}}</h1>
+
+    <div class="">
+
+      <span>${{ currentItem.price }}</span>
+      <button type="button" name="button">Add to Cart</button>
+
+    </div>
+
+    <div class="">
+
+      <p>
+        {{ currentItem.description }}
+      </p>
+
+    </div>
+
+  </div>
+
+</div>

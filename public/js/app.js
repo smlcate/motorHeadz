@@ -14,6 +14,10 @@ app.config(function($stateProvider, $urlRouterProvider) {
           url: '/explore',
           templateUrl: './partials/explore.html'
       })
+      .state('select', {
+          url: '/selectItem',
+          templateUrl: './partials/itemInfo.html'
+      })
       .state('admin', {
           url: '/admin',
           templateUrl: './partials/admin.html'

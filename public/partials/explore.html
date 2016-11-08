@@ -1,85 +1,7 @@
-<div class="storyHeaders">
-
-  <div id="itemInfoContainer" ng-if="currentItem">
-
-    <div id="itemInfo" ng-if="currentItem">
-
-
-      <div class="itemDescription">
-
-        <div class="itemDescriptionHeader">
-
-          <h2>{{ currentItem.make }} - {{ currentItem.model }}</h2>
-
-          <h4>${{ currentItem.price }}</h4>
-
-        </div>
-
-
-
-      </div>
-      <p>
-        {{ currentItem.description }}
-      </p>
-      <div class="">
-
-        <img ng-src="{{currentItem.image}}" alt="" />
-
-        <div class="itemFooter">
-
-          <p>
-            In Stock
-          </p>
-          <div type="button" name="button" ng-click="addToCart(currentItem)"><i class="material-icons">add_shopping_cart</i></div>
-
-        </div>
-
-
-      </div>
-
-
-    </div>
-
-
-    <div id="shoppingCartDisplay">
-
-      <div id="shoppingCart">
-
-        <div class="shoppingCartItemCell" ng-repeat="item in shoppingCart">
-
-          <h5>{{ item.make }} {{item.model }}</h5>
-
-          <p>
-            ${{ item.price }}
-          </p>
-
-          <button type="button" id="removeBtn" name="removeFromCartButton" ng-click="removeFromCart(item)">X</button>
-
-        </div>
-
-      </div>
-
-      <div id="shoppingCartFooter">
-
-        <a href="/#/checkout" type="button" name="button" ><i class="material-icons">shopping_cart</i></a>
-
-        <p>
-          ${{ cartTotal }}
-        </p>
-
-      </div>
-
-    </div>
-
-  </div>
-
-
-
-</div>
-
 <div id="storeDisplayheader">
 
-  <input type="text" name="name" value="" ng-model="search.title" placeholder="Search">
+  <input type="text" name="name" value="" ng-model="search" placeholder="Search">
+  <!-- <input type="text" name="name" value="" ng-model="search.make" placeholder="Search"> -->
 
   <!-- <label>min-price<input type="number" name="name" value="" ng-model="search.minPrice"></label>
   <label>max-price<input type="number" name="name" value="" ng-model="search.maxPrice"></label> -->
@@ -93,28 +15,43 @@
 
     <div class="itemCellBody">
 
-      <div class="itemInfo" >
-
-        <h4>{{ item.make }}</h4>
-        <h5>{{ item.model }}</h5>
-
-        <p>
-          ${{ item.price }}
-        </p>
-        <p>
-          Left in stock: {{ item.inStock }}
-        </p>
-
-      </div>
       <div class="itemImages">
 
         <img ng-src="{{ item.image }}" alt="" />
 
       </div>
 
+      <div class="">
+
+        <div class="itemCellHeader" >
+
+          <a href="/#/selectItem">
+            {{ item.make }} {{ item.model }}
+          </a>
+
+          <p>
+            ${{ item.price }}
+          </p>
+          <p>
+            Left in stock: {{ item.inStock }}
+          </p>
+
+        </div>
+
+        <div class="itemCellDescription">
+
+          {{ item.description }}
+
+        </div>
+
+      </div>
+
+
     </div>
 
 
   </div>
+
+
 
 </div>

@@ -157,6 +157,7 @@ app.controller('mainCtrl', ['$scope','$http', function($scope, $http) {
     console.log(item)
 
     $scope.currentItem = item;
+
   }
 
   $scope.addToCart = function(item) {

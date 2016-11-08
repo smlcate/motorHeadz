@@ -1,7 +1,6 @@
 body {
   width: 100%;
   background: #212121;
-
 }
 
 header {
@@ -43,14 +42,31 @@ main {
 
 #storeDisplay {
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
-  justify-content: space-around;
+  align-items: center;
+  justify-content: flex-start;
   padding: 10px;
+}
+
+#storeDisplayHeader {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  height: 40px;
+  padding: 5px;
+}
+
+#storeDisplayHeader input {
+  width: 400px;
+  border-radius: 5px;
+  border: 1px solid lightgrey;
+  font-size: 30px;
 }
 
 #itemInfoContainer {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   box-shadow: 0px 1px 3px 1px;
   height: 25%;
 
@@ -288,24 +304,38 @@ form .progress {
 // }
 
 .itemCells {
-  height: 150px;
-  width: 28%;
+  height: 200px;
+  width: 60%;
   min-width: 275px;
-  margin: 10px;
+  // margin: 10px;
   padding: 10px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  // justify-content: flex-start;
+  border-bottom: 1px solid lightgrey;
   // align-items: center;
-  box-shadow: 0px 1px 3px 0px black;
+  // box-shadow: 0px 1px 3px 0px black;
 }
 
 .itemCellHeader {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: space-between;
+  // align-items: center;
   padding-bottom: 10px;
+  height: 70px;
+}
+
+.itemCellHeader a {
   height: 30px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.itemCellHeader p {
+  height: 20px;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
 .itemCellHeader button {
@@ -319,13 +349,48 @@ form .progress {
 
 .itemCellBody {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 
-.itemCells img {
-  height: 120px;
-  border: 0;
+.itemImages {
+  // width: 50%;
 }
+
+.itemImages img {
+  width: 300px;
+}
+
+.itemCellDescription {
+  // width: 50%;
+  height: 100px;
+  overflow-y: scroll;
+  padding-left: 10px;
+}
+
+#infoDisplay {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  margin-top: 30px;
+  border-bottom: 1px solid lightgrey;
+}
+
+#infoDisplay .imgContainer {
+  width: 400px;
+}
+
+#infoDisplay .imgContainer img {
+  width: 375px;
+}
+
+#infoDisplay .infoContainer {
+  width: 400px;
+}
+
+// .itemCells img {
+//   height: 120px;
+//   border: 0;
+// }
 
 
 
@@ -333,4 +398,5 @@ footer {
   height: 15%;
   padding: 20px;
   border-top: 1px solid black;
+  color: white;
 }
