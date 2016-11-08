@@ -1,0 +1,88 @@
+<div id="adminDisplay" ng-controller="adminCtrl" >
+
+  <form ng-submit="submit(frm)" id="adminForm">
+
+    <div id="topAdminDisplay">
+
+      <div id="topleftAdminDisplay">
+
+        <!-- <input type="text" name="itemTitleInput" value="" id="itemTitleInput" ng-model="frm.itemTitleInput" placeholder="Title"> -->
+        <input type="text" name="itemMakeUnput" value="" id="itemMakeInput" ng-model="frm.itemMakeInput" placeholder="Make">
+        <input type="text" name="itemModelUnput" value="" id="itemModelInput" ng-model="frm.itemModelInput" placeholder="Model">
+        <input type="text" name="itemDescriptionInput" id="itemDescriptionInput" value="" ng-model="frm.itemDescriptionInput" placeholder="Description">
+        <input type="file" name="itemImgInput" value="" id="itemImgInput" ng-model="frm.itemImgInput" placeholder="Image">
+
+      </div>
+
+      <div id="toprightAdminDisplay">
+
+
+        <div id="imgPreview">
+            <img id="imgPreviewImg" ng-src="{{frm.itemImgInput}}" />
+        </div>
+
+        <input type="number" name="itemPriceInput" value="" id="itemPriceInput" ng-model="frm.itemPriceInput" placeholder="0">
+        <input type="number" name="itemInventoryInput" value="" id="itemInventoryInput" ng-model="frm.itemInventoryInput" placeholder="0">
+
+
+      </div>
+
+
+    </div>
+
+    <input type="submit" name="name" value="Add">
+
+
+  </form>
+
+
+
+  <div id="storeDisplay">
+
+
+    <div class="itemCells" ng-repeat="item in items | filter:search" ng-click="selectItem(item)">
+
+      <div class="itemCellBody">
+
+        <div class="itemImages">
+
+          <img ng-src="{{ item.image }}" alt="" />
+
+        </div>
+
+        <div class="">
+
+          <div class="itemCellHeader" >
+
+            <a href="/#/selectItem/admin">
+              {{ item.make }} {{ item.model }}
+            </a>
+
+            <p>
+              ${{ item.price }}
+            </p>
+            <p>
+              Left in stock: {{ item.inStock }}
+            </p>
+
+          </div>
+
+          <div class="itemCellDescription">
+
+            {{ item.description }}
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+
+    </div>
+
+
+
+  </div>
+
+</div>

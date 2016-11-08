@@ -1,18 +1,48 @@
 <html>
 <head>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.js" charset="utf-8"></script>
-  <script src="./js/app.js" charset="utf-8"></script>
-  <script src="./js/controllers/mainCtrl.js" charset="utf-8"></script>
+
+  <link rel="stylesheet" href="/styles/main.scss" media="screen" title="no title">
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <script
+  src="https://code.jquery.com/jquery-3.1.1.js"
+  integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
+  crossorigin="anonymous"></script>
+
+  <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+
+  <script type="text/javascript">
+    Stripe.setPublishableKey('pk_test_9Cr4S7pjZKrvrqCzZJDPSBhr');
+  </script>
+
+  <script defer src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.js" charset="utf-8"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/danialfarid-angular-file-upload/12.2.12/ng-file-upload.js" charset="utf-8"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/ng-img-crop/0.3.2/ng-img-crop.js" charset="utf-8"></script>
+  <script defer src="./js/app.js" charset="utf-8"></script>
+  <script defer src="./js/controllers/mainCtrl.js" charset="utf-8"></script>
+  <script defer src="./js/controllers/authCtrl.js" charset="utf-8"></script>
+  <script defer src="./js/controllers/adminCtrl.js" charset="utf-8"></script>
+  <script defer src="./js/controllers/checkoutCtrl.js" charset="utf-8"></script>
+  <script defer src="./js/directives/mainDir.js" charset="utf-8"></script>
 
 </head>
 <body ng-app='mainApp' ng-controller="mainCtrl">
   <header>
     <h2>Motor Headz</h2>
+
+    <p ng-if="user.email !== 'undefined'">
+      Hello {{ user.email }}
+    </p>
+
+
     <nav>
       <ul>
         <li><a href="/">Home</a></li>
         <li><a href="/#/explore">Explore</a></li>
+        <li ng-if="user.email === 'undefined' || !user.email"><a href="/#/signup">Sign Up</a></li>
+        <li ng-if="user.email === 'undefined' || !user.email"><a href="/#/signin">Sign In</a></li>
       </ul>
     </nav>
   </header>

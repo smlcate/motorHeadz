@@ -1,0 +1,402 @@
+body {
+  width: 100%;
+  background: #212121;
+}
+
+header {
+  height: 5%;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-left: -7px;
+  background: #212121;
+  color: #FAFAFA;
+}
+
+header a {
+  color: #FAFAFA;
+  text-decoration: none;
+}
+
+header h2 {
+  margin-left: 20px;
+}
+
+header nav ul {
+  display: flex;
+}
+
+header nav ul li {
+  margin-left: 10px;
+  list-style: none;
+}
+
+main {
+  height: 95%;
+  overflow-y: scroll;
+  background: #FAFAFA;
+  width: 100vw;
+  margin-left: -7px;
+}
+
+#storeDisplay {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 10px;
+}
+
+#storeDisplayHeader {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  height: 40px;
+  padding: 5px;
+}
+
+#storeDisplayHeader input {
+  width: 400px;
+  border-radius: 5px;
+  border: 1px solid lightgrey;
+  font-size: 30px;
+}
+
+#itemInfoContainer {
+  display: flex;
+  justify-content: flex-start;
+  box-shadow: 0px 1px 3px 1px;
+  height: 25%;
+
+}
+
+#itemInfo {
+  width: 65%;
+  border-right: 1px solid black;
+}
+
+.itemDescription {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 10px;
+  height: 100%;
+  width: 65%;
+}
+
+.itemDescriptionHeader {
+  display: flex;
+  flex-direction: column;
+  height: 20%;
+}
+
+.itemDescriptionHeader h2 {
+  margin-top: 0px;
+  // height: 30px;
+  // margin-bottom: 0px;
+}
+
+.itemDescriptionHeader h4 {
+  margin-top: -20px;
+}
+
+#itemInfo {
+  width:65%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+#itemInfo img {
+  height: 130px;
+}
+
+#itemInfo .itemFooter {
+  display: flex;
+  align-items: center;
+}
+
+#itemInfo .itemFooter i {
+  border: 2px solid lightblue;
+  border-radius: 4px;
+  height: 30px;
+  margin-left: 10px;
+  color:lightblue;
+  display: flex;
+  align-items: center;
+}
+
+#shoppingCartButton {
+  height: 200px;
+  width: 40px;
+  margin-right: 0px;
+  background-color: lightblue;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // border: 1px solid black;
+}
+
+#shoppingCartButton i {
+  width: 40px;
+}
+
+#shoppingCartDisplay {
+  width: 33%;
+}
+
+#shoppingCart {
+  height: 75%;
+  border-bottom: 1px solid black;
+  overflow-y: scroll;
+}
+
+#shoppingCartFooter {
+  height: 25%;
+  border-bottom: 1px solid black;
+  display: flex;
+  align-items: center;
+}
+
+.shoppingCartItemCell {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 30px;
+  // background: blue;
+}
+
+.shoppingCartItemCell h5 {
+  width: 30%;
+}
+
+.shoppingCartItemCell p {
+  width: 30%;
+}
+
+.shoppingCartItemCell #removeBtn {
+  width: 20px;
+  height: 20px;
+  border: none;
+  background: red;
+  color: white;
+  text-align: center;
+}
+
+
+#adminForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#adminDisplay {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#adminDisplay input {
+  height: 30px;
+  width: 200px;
+  font-size: 20px;
+  margin-left: 20px;
+
+}
+
+#topAdminDisplay {
+  display: flex;
+}
+
+#topleftAdminDisplay {
+  display: flex;
+  flex-direction: column;
+  width: 45%;
+  padding: 20px;
+}
+
+#topleftAdminDisplay input {
+  height: 30px;
+  font-size: 22px;
+  margin: 5px;
+}
+
+#topleftAdminDisplay button {
+  background: lightgreen;
+  border: none;
+}
+
+#imgPreview {
+  display: flex;
+  justify-content: center;
+}
+
+#imgPreview img {
+  height: 100px;
+}
+
+#toprightAdminDisplay {
+  width: 45%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+#toprightAdminDisplay input {
+  height: 30px;
+  font-size: 22px;
+  margin: 5px;
+}
+
+// #imageInput {
+//   height: 100px;
+//   width: 100px;
+//   background: white;
+// }
+
+// imgCrop {
+//   background: blue;
+// }
+
+.cropArea {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #E4E4E4;
+  overflow: hidden;
+  width:100%;
+  height:200px;
+}
+
+.cropArea canvas {
+  width: 200px;
+  height: 100%;
+}
+
+
+// #imgEditorPreview {
+//   height:350px;
+// }
+form .progress {
+  line-height: 15px;
+}
+.progress {
+  // display: inline-block;
+  width: 100px;
+  border: 3px groove #CCC;
+}
+.progress div {
+  font-size: smaller;
+  background: orange;
+  width: 0;
+}
+
+// #topleftAdminDisplay #descriptionInput {
+//   display: flex;
+//   justify-content: flex-start;
+//   height: 40px;
+// }
+
+.itemCells {
+  height: 200px;
+  width: 60%;
+  min-width: 275px;
+  // margin: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  // justify-content: flex-start;
+  border-bottom: 1px solid lightgrey;
+  // align-items: center;
+  // box-shadow: 0px 1px 3px 0px black;
+}
+
+.itemCellHeader {
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: space-between;
+  // align-items: center;
+  padding-bottom: 10px;
+  height: 70px;
+}
+
+.itemCellHeader a {
+  height: 30px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.itemCellHeader p {
+  height: 20px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.itemCellHeader button {
+  background: red;
+  color: white;
+  border: none;
+  text-align: center;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.itemCellBody {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.itemImages {
+  // width: 50%;
+}
+
+.itemImages img {
+  width: 300px;
+}
+
+.itemCellDescription {
+  // width: 50%;
+  height: 100px;
+  overflow-y: scroll;
+  padding-left: 10px;
+}
+
+#infoDisplay {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  margin-top: 30px;
+  border-bottom: 1px solid lightgrey;
+}
+
+#infoDisplay .imgContainer {
+  width: 400px;
+}
+
+#infoDisplay .imgContainer img {
+  width: 375px;
+}
+
+#infoDisplay .infoContainer {
+  width: 400px;
+}
+
+// .itemCells img {
+//   height: 120px;
+//   border: 0;
+// }
+
+
+
+footer {
+  height: 15%;
+  padding: 20px;
+  border-top: 1px solid black;
+  color: white;
+}

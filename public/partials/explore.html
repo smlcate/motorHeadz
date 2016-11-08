@@ -1,24 +1,57 @@
-<div class="storyHeaders">
+<div id="storeDisplayheader">
 
-  <h1>Find Something!</h1>
+  <input type="text" name="name" value="" ng-model="search" placeholder="Search">
+  <!-- <input type="text" name="name" value="" ng-model="search.make" placeholder="Search"> -->
+
+  <!-- <label>min-price<input type="number" name="name" value="" ng-model="search.minPrice"></label>
+  <label>max-price<input type="number" name="name" value="" ng-model="search.maxPrice"></label> -->
 
 </div>
+
 <div id="storeDisplay">
 
-  <div class="itemCells" ng-repeat="item in items">
 
-    <div class="itemInfo">
+  <div class="itemCells" ng-repeat="item in items | filter:search" ng-click="selectItem(item)">
 
-      <h4>{{ item.title }}</h4>
-      <p>
-        ${{ item.price }}
-      </p>
-      <p>
-        Left in stock: {{ item.inventory }}
-      </p>
+    <div class="itemCellBody">
+
+      <div class="itemImages">
+
+        <img ng-src="{{ item.image }}" alt="" />
+
+      </div>
+
+      <div class="">
+
+        <div class="itemCellHeader" >
+
+          <a href="/#/selectItem">
+            {{ item.make }} {{ item.model }}
+          </a>
+
+          <p>
+            ${{ item.price }}
+          </p>
+          <p>
+            Left in stock: {{ item.inStock }}
+          </p>
+
+        </div>
+
+        <div class="itemCellDescription">
+
+          {{ item.description }}
+
+        </div>
+
+      </div>
+
 
     </div>
 
+
   </div>
+
+
 
 </div>
