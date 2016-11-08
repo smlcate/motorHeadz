@@ -50,7 +50,7 @@ app.controller('adminCtrl', ['$scope', '$http', 'Upload', '$timeout', function($
 
 
   $scope.changeItemImage = function(img) {
-    $('#imageInput').attr('src',img);
+    $('#imageInput').attr('ng-src',img);
   }
 
   // $scope.upload = function (dataUrl, name) {

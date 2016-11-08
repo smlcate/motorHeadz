@@ -21,7 +21,8 @@ exports.getItems = function(req, res, next) {
 }
 
 
-exports.addItem = function(req, res, next) {
+exports.addItem = function(req, res, next){
+
 
   var frm = {
     title: req.body.frm.itemTitleInput,

@@ -10,7 +10,7 @@
         <input type="text" name="itemMakeUnput" value="" id="itemMakeInput" ng-model="frm.itemMakeInput" placeholder="Make">
         <input type="text" name="itemModelUnput" value="" id="itemModelInput" ng-model="frm.itemModelInput" placeholder="Model">
         <input type="text" name="itemDescriptionInput" id="itemDescriptionInput" value="" ng-model="frm.itemDescriptionInput" placeholder="Description">
-        <input type="text" name="itemImgInput" value="" id="itemImgInput" ng-model="frm.itemImgInput" placeholder="Image">
+        <input type="file" name="itemImgInput" value="" id="itemImgInput" ng-model="frm.itemImgInput" placeholder="Image">
 
       </div>
 
@@ -39,23 +39,25 @@
 
   <div id="storeDisplay">
 
-    <div id="storeDisplay">
 
-      <div class="itemCells" ng-repeat="item in items" ng-click="select(item)">
+    <div class="itemCells" ng-repeat="item in items | filter:search" ng-click="selectItem(item)">
 
+      <div class="itemCellBody">
 
-        <div class="itemCellHeader">
+        <div class="itemImages">
 
-          <h4>{{ item.model }}</h4>
+          <img ng-src="{{ item.image }}" alt="" />
 
-          <button type="button" name="deleteItem" ng-click="delete(item)">X</button>
         </div>
 
-        <div class="itemCellBody">
+        <div class="">
 
-          <div class="">
+          <div class="itemCellHeader" >
 
-            <h5>{{ item.make }}</h5>
+            <a href="/#/selectItem/admin">
+              {{ item.make }} {{ item.model }}
+            </a>
+
             <p>
               ${{ item.price }}
             </p>
@@ -65,17 +67,22 @@
 
           </div>
 
-          <div class="itemImages">
+          <div class="itemCellDescription">
 
-            <img ng-src="{{ item.image }}" alt="" />
+            {{ item.description }}
 
           </div>
 
         </div>
 
+
       </div>
+
 
     </div>
 
+
+
   </div>
+
 </div>
