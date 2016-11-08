@@ -1,6 +1,9 @@
 {
   "name": "motorheadz",
   "version": "0.2.5",
+  "scripts": {
+    "start": "node server.js"
+  },
   "engines": {
     "node": "5.9.1"
   },
