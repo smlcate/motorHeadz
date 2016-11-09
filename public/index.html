@@ -32,10 +32,6 @@
   <header>
     <h2>Motor Headz</h2>
 
-    <p ng-if="user.email !== 'undefined'">
-      Hello {{ user.email }}
-    </p>
-
 
     <nav>
       <ul>
@@ -43,8 +39,14 @@
         <li><a href="/#/explore">Explore</a></li>
         <li ng-if="user.email === 'undefined' || !user.email"><a href="/#/signup">Sign Up</a></li>
         <li ng-if="user.email === 'undefined' || !user.email"><a href="/#/signin">Sign In</a></li>
+        <li ng-if="user.email !== 'undefined' && user.email"><a href="/#/home">Log Out</a></li>
       </ul>
+
+
     </nav>
+
+    <a href="/#/shoppingCart">Cart</a>
+
   </header>
   <main ui-view>
 
