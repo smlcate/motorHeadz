@@ -8,11 +8,23 @@ app.controller('mainCtrl', ['$scope','$http', function($scope, $http) {
 
   $scope.cartTotal = 0;
 
-  $scope.items = [];
+  $scope.items = {
+    items: [],
+    categories: {
+      parts: [],
+      vehicles: [],
+      accessories: []
+    }
+  };
+
+
 
   var init = function() {
     $http.get('/getItems')
     .then(function(res) {
+
+
+
       $scope.items = res.data;
     })
   }

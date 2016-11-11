@@ -1,9 +1,17 @@
 app.controller('adminCtrl', ['$scope', '$http', 'Upload', '$timeout', function($scope, $http, Upload, $timeout) {
 
+  $scope.partsList = {
+    parts: [],
+    totalQuantity: 0
+  };
+
   $scope.submit = function(frm) {
     $http.post('/addItem', {frm:frm})
     .then(function(res) {
+
+
       $scope.items = res.data;
+
       console.log($scope.items);
     })
     .catch(function(err) {

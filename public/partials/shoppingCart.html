@@ -1,48 +1,24 @@
-<div id="shoppingCartDisplay">
+<div id="shoppingCart">
 
-  <div id="shoppingCartHeader">
+  <div id="shoppingCartDisplay">
 
-    <a href="/#/checkout">Checkout</a>
+    <div id="shoppingCartCell" ng-repeat="item in shoppingCart">
+
+      <a href="#">{{ item.make }} {{ item.model }}</a>
+
+      <p>
+        ${{ item.price }}
+      </p>
+
+      <h5>X {{ item.quantity }}</h5>
+
+    </div>
 
   </div>
 
-  <div class="itemCells" ng-repeat="item in shoppingCart">
+  <div id="shoppingCartFooter">
 
-    <div class="itemCellBody">
-
-      <div class="itemImages">
-
-        <img ng-src="{{ item.image }}" alt="" />
-
-      </div>
-
-      <div class="">
-
-        <div class="itemCellHeader" >
-
-          <a href="/#/selectItem">
-            {{ item.make }} {{ item.model }}
-          </a>
-
-          <p>
-            ${{ item.price }}
-          </p>
-          <p>
-            Left in stock: {{ item.inStock }}
-          </p>
-
-        </div>
-
-        <div class="itemCellDescription">
-
-          {{ item.description }}
-
-        </div>
-
-      </div>
-
-
-    </div>
+    <a href="/#/checkout">Checkout</a>
 
   </div>
 

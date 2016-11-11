@@ -1,17 +1,32 @@
 body {
   width: 100%;
   background: #212121;
+  font-family:"Coda Caption";
+  font-family: helvetica;
+
 }
 
 header {
-  height: 5%;
+  height: 200px;
   width: 100%;
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
   margin-left: -7px;
   background: #212121;
   color: #FAFAFA;
+  font-family: helvetica;
+  // background-image: url(../images/motoheadzlogo.jpg);
+  // background-position: center;
+  // background-size: contain;
+}
+
+header img {
+  width: 825px;
+  height: 200px;
+  margin-left: 20px;
+  // min-width: 100vw;
 }
 
 header a {
@@ -32,13 +47,40 @@ header nav ul li {
   list-style: none;
 }
 
+header .headerHeader {
+  width: 100%;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  background: #E57373;
+  border-bottom: 1px solid white;
+}
+
+header .navBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 80%;
+}
+
 main {
   height: 95%;
   overflow-y: scroll;
   background: #FAFAFA;
   width: 100vw;
   margin-left: -7px;
+  background-size: cover;
 }
+
+
+.numberInputs {
+  display: flex;
+  align-items: center;
+  font-size: 30px;
+  font-weight: bold;
+  font-family: monospace;
+}
+
 
 #storeDisplay {
   display: flex;
@@ -145,23 +187,32 @@ main {
   width: 40px;
 }
 
-#shoppingCartDisplay {
-  width: 100%;
+#shoppingCart {
+  height: 75%;
+  border-bottom: 1px solid #E57373;
+  overflow-y: scroll;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
 }
 
-#shoppingCart {
-  height: 75%;
-  border-bottom: 1px solid black;
-  overflow-y: scroll;
+#shoppingCartDisplay {
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+
 }
+
+#shoppingCartCell {
+  display: flex;
+  align-items: center;
+
+}
+
 
 #shoppingCartFooter {
   height: 25%;
-  border-bottom: 1px solid black;
+  // border-bottom: 1px solid black;
   display: flex;
   align-items: center;
 }
@@ -341,6 +392,9 @@ form .progress {
   margin-top: 0px;
   margin-bottom: 0px;
 }
+.numberInputs #itemPriceInput {
+  width: 181px;
+}
 
 .itemCellHeader button {
   background: red;
@@ -369,6 +423,68 @@ form .progress {
   height: 100px;
   overflow-y: scroll;
   padding-left: 10px;
+}
+
+
+
+.storyHeaders {
+  display: flex;
+  justify-content: center;
+  color: #616161;
+}
+
+.storyBodies {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  // padding: 20px;
+}
+.storyBodies a {
+  font-size: 30px;
+}
+
+.categoryBoard {
+  width: 80%;
+  height: 300px;
+  // border: 1px solid black;
+  // border-radius: 10px;
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  // justify-content: space-around;
+  // background-color: #212121;
+  color: #616161;
+}
+
+.homeCategoryDisplay {
+  height: 90%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background: linear-gradient(to right, #FAFAFA, #E57373, #FAFAFA);
+  padding: 20px;
+  color: #616161;
+
+  // flex-direction: column;
+
+}
+
+.homeItemCell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+  // box-shadow: 0px 8px 3px -6px black;
+}
+
+
+.homeItemCell img {
+  height: 150px;
+  margin-bottom: -20px;
 }
 
 

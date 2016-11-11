@@ -1,12 +1,64 @@
 <div class="storyHeaders">
 
-  <h1>About Us!</h1>
+  <h1>
+
+    Welcome to MotorHeadz.com!
+
+  </h1>
 
 </div>
 <div class="storyBodies">
 
-  <p>
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-  </p>
+  <div class="categoryBoard">
+
+    <a href="/#/explore">Parts</a>
+
+    <div class="homeCategoryDisplay">
+
+      <div class="homeItemCell" ng-repeat="item in items.categories.parts">
+
+        <img ng-src="{{ item.image }}" alt="" />
+
+        <h3>{{ item.make }} {{ item.model }}</h3>
+
+      </div>
+
+    </div>
+
+  </div>
+  <div class="categoryBoard">
+
+    <a>Accessories</a>
+
+    <div class="homeCategoryDisplay">
+
+      <div class="homeItemCell" ng-repeat="item in items.categories.accessories">
+
+        <img ng-src="{{ item.image }}" alt="" />
+
+        <h3>{{ item.make }} {{ item.model }}</h3>
+
+      </div>
+
+    </div>
+
+  </div>
+  <div class="categoryBoard">
+
+    <a>Vehicles</a>
+
+    <div class="homeCategoryDisplay">
+
+      <div class="homeItemCell" ng-repeat="item in items.categories.vehicles">
+
+        <img ng-src="{{ item.image }}" alt="" />
+
+        <h3>{{ item.make }} {{ item.model }}</h3>
+
+      </div>
+
+    </div>
+
+  </div>
 
 </div>

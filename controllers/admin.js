@@ -13,10 +13,54 @@ app.use(bodyParser.json());
 
 
 exports.getItems = function(req, res, next) {
+
+  var items = {
+    items: [],
+    categories: {
+      parts: [],
+      vehicles: [],
+      accessories: []
+    }
+  };
+
   knex('items')
   .select('*')
   .then(function(data) {
-    res.send(data);
+    items.items = data;
+  })
+  .then(function() {
+    return knex('items')
+    .select('*')
+    .where({type:'Vehicle'})
+    .then(function(data) {
+      items.categories.vehicles = data;
+    })
+    .catch(function(err) {
+      console.log(err);
+    })
+  })
+  .then(function() {
+    return knex('items')
+    .select('*')
+    .where({type:'Accessory'})
+    .then(function(data) {
+      items.categories.accessories = data;
+    })
+    .catch(function(err) {
+      console.log(err);
+    })
+  })
+  .then(function() {
+    return knex('items')
+    .select('*')
+    .where({type:'Part'})
+    .then(function(data) {
+      items.categories.parts = data;
+      res.send(items);
+    })
+    .catch(function(err) {
+      console.log(err);
+    })
   })
 }
 
@@ -25,13 +69,13 @@ exports.addItem = function(req, res, next){
 
 
   var frm = {
-    title: req.body.frm.itemTitleInput,
+    type: req.body.frm.type,
     make: req.body.frm.itemMakeInput,
     model: req.body.frm.itemModelInput,
     description: req.body.frm.itemDescriptionInput,
     image: req.body.frm.itemImgInput,
     price: req.body.frm.itemPriceInput,
-    inStock: req.body.frm.itemInventoryInput
+    inStock: req.body.frm.inStock
   }
 
   console.log(frm)

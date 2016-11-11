@@ -1,36 +1,71 @@
 <div id="adminDisplay" ng-controller="adminCtrl" >
 
-  <form ng-submit="submit(frm)" id="adminForm">
+  <form ng-submit="submit(frm, part)" id="adminForm">
 
     <div id="topAdminDisplay">
 
       <div id="topleftAdminDisplay">
 
         <!-- <input type="text" name="itemTitleInput" value="" id="itemTitleInput" ng-model="frm.itemTitleInput" placeholder="Title"> -->
-        <select class="" name="">
-          <option>Vehicle</option>
-          <option>Accessory</option>
-          <option>Part</option>
+        <select class="" name="" ng-model="frm.type">
+          <option value="Vehicle">Vehicle</option>
+          <option value="Accessory">Accessory</option>
+          <option value="Part">Part</option>
         </select>
+
         <input type="text" name="itemMakeUnput" value="" id="itemMakeInput" ng-model="frm.itemMakeInput" placeholder="Make/Name/Title">
         <input type="text" name="itemModelUnput" value="" id="itemModelInput" ng-model="frm.itemModelInput" placeholder="Model/Type/Size">
         <input type="text" name="itemDescriptionInput" id="itemDescriptionInput" value="" ng-model="frm.itemDescriptionInput" placeholder="Description">
-        <input type="text" name="itemImgInput" value="" id="itemImgInput" ng-model="frm.itemImgInput" placeholder="Image">
+
+        <div class="numberInputs">
+          <span>$</span>
+          <input type="number" name="itemPriceInput" value="" id="itemPriceInput" ng-model="frm.itemPriceInput" placeholder="0">
+        </div>
 
       </div>
 
       <div id="toprightAdminDisplay">
 
 
+        <input type="text" name="itemImgInput" value="" id="itemImgInput" ng-model="frm.itemImgInput" placeholder="Image">
+
         <div id="imgPreview">
-            <img id="imgPreviewImg" ng-src="{{frm.itemImgInput}}" />
+          <img id="imgPreviewImg" ng-src="{{frm.itemImgInput}}" />
         </div>
 
-        <input type="number" name="itemPriceInput" value="" id="itemPriceInput" ng-model="frm.itemPriceInput" placeholder="0">
-        <input type="number" name="itemInventoryInput" value="" id="itemInventoryInput" ng-model="frm.itemInventoryInput" placeholder="0">
+        <input type="number" name="name" value="" ng-model="frm.inStock">
 
 
       </div>
+
+      <!-- <div id="partQuantityDisplay"> -->
+<!--
+        <input type="text" name="colorInput" value="" id="colorInput" ng-model="part.colorInput" placeholder="color/scheme">
+        <input type="number" name="itemInventoryInput" value="" id="itemInventoryInput" ng-model="part.itemInventoryInput" placeholder="0" step="any">
+        <button type="button" name="button" ng-click="addPart(part)">Add</button> -->
+
+        <!-- <div id="partsList">
+
+          <div class="partCell" ng-repeat="part in partsList.parts">
+
+            <h4>{{ part.color }} x {{ part.quantity }}</h4>
+
+            <p>
+            </p>
+
+          </div>
+
+          <div id="partQuantityDisplayFooter">
+
+            <p>
+              Total: {{ partsList.totalQuantity }}
+            </p>
+
+          </div>
+
+        </div> -->
+
+      <!-- </div> -->
 
 
     </div>
@@ -45,7 +80,7 @@
   <div id="storeDisplay">
 
 
-    <div class="itemCells" ng-repeat="item in items | filter:search" ng-click="selectItem(item)">
+    <div class="itemCells" ng-repeat="item in items.items | filter:search" ng-click="selectItem(item)">
 
       <div class="itemCellBody">
 
