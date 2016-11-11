@@ -12,11 +12,17 @@
 
       <h5>X {{ item.quantity }}</h5>
 
+      <p>
+        {{ item.total }}
+      </p>
+
     </div>
 
   </div>
 
   <div id="shoppingCartFooter">
+
+    <h4>Cart Total: {{ cartTotal }}</h4>
 
     <a href="/#/checkout">Checkout</a>
 

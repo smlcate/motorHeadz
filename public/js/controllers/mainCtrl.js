@@ -172,10 +172,15 @@ app.controller('mainCtrl', ['$scope','$http', function($scope, $http) {
 
   }
 
-  $scope.addToCart = function(item) {
-    $scope.shoppingCart.push(item);
-    $scope.cartTotal += item.price;
-    console.log($scope.shoppingCart);
+  $scope.addToCart = function(item, quantity) {
+    var e = item;
+
+    e.quantity = quantity || 1;
+    e.total = e.price * e.quantity;
+    $scope.shoppingCart.push(e);
+
+    $scope.cartTotal += e.total;
+
   }
 
   $scope.removeFromCart = function(item) {
