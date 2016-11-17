@@ -4,7 +4,7 @@
 
     <div id="shoppingCartCell" ng-repeat="item in shoppingCart">
 
-      <a href="#">{{ item.make }} {{ item.model }}</a>
+      <a href="#">{{ item.name }}</a>
 
       <p>
         ${{ item.price }}
@@ -13,7 +13,7 @@
       <h5>X {{ item.quantity }}</h5>
 
       <p>
-        {{ item.total }}
+        ${{ item.totalPrice }}
       </p>
 
     </div>

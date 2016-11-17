@@ -11,16 +11,20 @@ app.controller('checkoutCtrl', ['$scope', '$http', function($scope, $http) {
   //   return false;
   // });
 
-  function stripeResponseHandler(status, response) {
+  function stripeResponseHandler(status, response, frm) {
     console.log(status)
 
-    console.log(response);
+    // console.log(response);
 
-    console.log(response.id)
+    // console.log(response.id)
+
+    var cart = $scope.shoppingCart;
 
     var order = {
+      cart: cart,
       item: response,
-      price: $scope.cartTotal
+      price: $scope.cartTotal,
+      frm: frm
     }
 
     $http.post('/checkout', order)
@@ -32,7 +36,7 @@ app.controller('checkoutCtrl', ['$scope', '$http', function($scope, $http) {
 
   $scope.checkout = function(frm) {
 
-    console.log(Stripe.card.createToken(frm, stripeResponseHandler));
+    console.log(Stripe.card.createToken(frm, stripeResponseHandler, frm));
 
   };
 }])

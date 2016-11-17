@@ -10,9 +10,11 @@ exports.submit = function(req, res, next) {
 // Get the credit card details submitted by the form
   var token = req.body.item; // Using Express
 
-  // console.log(req.body);
+  console.log(req.body);
 
-  console.log(req.body.price);
+
+
+  // console.log(req.body.price);
 
   // stripe.orders.pay("or_19Cr4yKuIHfbIMlGTzA3HNdX", {
   //   source: token
@@ -21,7 +23,23 @@ exports.submit = function(req, res, next) {
   //   console.log(order);
   // });
 
-  console.log(token)
+  // console.log(token)
+
+  // console.log(req.body.cart)
+
+  var items = [];
+
+  for (var i = 0; i < req.body.cart.length; i++) {
+
+    var e = {
+      type: 'sku',
+      parent: req.body.cart[i].skuId,
+      quantity: req.body.cart[i].quantity
+    }
+
+    items.push(e);
+
+  }
 
   stripe.charges.create({
   amount: req.body.price * 100, // Amount in cents
@@ -36,8 +54,27 @@ exports.submit = function(req, res, next) {
       res.send('error')
       return;
     } else {
-      res.send('success');
+      stripe.orders.create({
+        currency: 'usd',
+        items: items,
+        shipping: {
+          name: 'Sam Cate',
+          address: {
+            line1: '1234 Main Street',
+            city: 'San Francisco',
+            country: 'US',
+            postal_code: '94111'
+          }
+        },
+        email: 'avery.taylor@example.com'
+      }, function(err, order) {
+        console.log(order, err);
+        // asynchronously called
+    });
     }
   });
+  //
+
+
 
 }
