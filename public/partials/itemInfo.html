@@ -3,7 +3,7 @@
 
   <div class="imgContainer">
 
-    <img ng-src="{{ currentItem.image }}" alt="" />
+    <img ng-src="{{ currentItem.images[0] }}" alt="" />
 
   </div>
 
@@ -14,8 +14,17 @@
 
     <div class="">
 
-      <span>${{ currentItem.price }}</span>
-      <button type="button" name="button">Add to Cart</button>
+      <span>${{ currentItem.skus.data[0].price }}</span>
+
+      <input type="number" name="name" value="" ng-model="frm.itemQuantity">
+
+      <select class="" name="" ng-model="frm.colorSelect" value="Color">
+
+        <option ng-repeat="sku in currentItem.skus.data">{{ sku.attributes.color }}</option>
+
+      </select>
+
+      <button type="button" name="button" ng-click="addToCart(frm, currentItem)">Add to Cart</button>
 
     </div>
 

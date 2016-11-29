@@ -1,9 +1,17 @@
 app.controller('adminCtrl', ['$scope', '$http', 'Upload', '$timeout', function($scope, $http, Upload, $timeout) {
 
+  $scope.partsList = {
+    parts: [],
+    totalQuantity: 0
+  };
+
   $scope.submit = function(frm) {
-    $http.post('/addItem', {frm:frm})
+    $http.post('/addItem', {frm:frm, skus:$scope.partsList.parts})
     .then(function(res) {
+
+
       $scope.items = res.data;
+
       console.log($scope.items);
     })
     .catch(function(err) {
@@ -51,6 +59,19 @@ app.controller('adminCtrl', ['$scope', '$http', 'Upload', '$timeout', function($
 
   $scope.changeItemImage = function(img) {
     $('#imageInput').attr('ng-src',img);
+  }
+
+  $scope.addPart = function(part) {
+    $scope.partsList.totalQuantity += part.itemInventoryInput;
+
+    var e = {
+      color: part.colorInput,
+      quantity: part.itemInventoryInput
+    }
+
+    $scope.partsList.parts.push(e);
+
+    return;
   }
 
   // $scope.upload = function (dataUrl, name) {

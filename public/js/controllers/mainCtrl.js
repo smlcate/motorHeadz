@@ -8,12 +8,55 @@ app.controller('mainCtrl', ['$scope','$http', function($scope, $http) {
 
   $scope.cartTotal = 0;
 
-  $scope.items = [];
+  $scope.items = {
+    items: [],
+    categories: {
+      parts: [],
+      vehicles: [],
+      accessories: []
+    }
+  };
+
+
 
   var init = function() {
+
+    console.log(localStorage)
+
+    if (localStorage.currentItem !== 'undefined' && localStorage.currentItem) {
+
+      $scope.currentItem = JSON.parse(localStorage.currentItem);
+
+    }
+
+
+    if (localStorage.shoppingCart !== 'undefined' && localStorage.shoppingCart) {
+      $scope.shoppingCart = JSON.parse(localStorage.shoppingCart);
+      $scope.cartTotal = localStorage.shoppingCartTotal;
+
+    }
+
+
     $http.get('/getItems')
     .then(function(res) {
-      $scope.items = res.data;
+
+
+
+      $scope.items.items = res.data.data;
+
+      for (var i = 0; i < res.data.data.length; i++) {
+        if (res.data.data[i].metadata.type === 'Vehicle') {
+          $scope.items.categories.vehicles.push(res.data.data[i]);
+        } else
+        if (res.data.data[i].metadata.type === 'Part') {
+          $scope.items.categories.parts.push(res.data.data[i]);
+        } else
+        if (res.data.data[i].metadata.type === 'Accessory') {
+          $scope.items.categories.accessories.push(res.data.data[i]);
+        }
+      }
+
+      console.log($scope.items)
     })
   }
 
@@ -34,115 +77,6 @@ app.controller('mainCtrl', ['$scope','$http', function($scope, $http) {
     $('#imageInput').attr('src',img);
   }
 
-  // $scope.items = [
-  //   {
-  //     title: 'Dirt Bike',
-  //     price: 1200,
-  //     inventory: 3,
-  //     description: 'Rides well, and is super cool! Perfect condition',
-  //     img: "http://worlds-super-bikes.com/wp-content/uploads/2015/12/list-of-best-dirt-bikes-724x506.jpg"
-  //   },
-  //   {
-  //     title: 'ATV',
-  //     price: 2100,
-  //     inventory: 2,
-  //     description: 'Brand New ATV, never been ridden',
-  //     img: "http://atv.com.vsassets.com/blog/wp-content/uploads/2016/02/Bad-Boy-Onslaught-550-4x4-Feature.jpg"
-  //   },
-  //   {
-  //     title: 'Moped',
-  //     price: 500,
-  //     inventory: 5,
-  //     description: 'Kind of a turd, but oh well',
-  //     img: "https://optibike.com/wp-content/uploads/2015/02/gas-moped.png"
-  //   },
-  //   {
-  //     title: 'Dirt Bike',
-  //     price: 1200,
-  //     inventory: 3,
-  //     description: 'Rides well, and is super cool! Perfect condition',
-  //     img: "http://worlds-super-bikes.com/wp-content/uploads/2015/12/list-of-best-dirt-bikes-724x506.jpg"
-  //   },
-  //   {
-  //     title: 'ATV',
-  //     price: 2100,
-  //     inventory: 2,
-  //     description: 'Brand New ATV, never been ridden',
-  //     img: "http://atv.com.vsassets.com/blog/wp-content/uploads/2016/02/Bad-Boy-Onslaught-550-4x4-Feature.jpg"
-  //   },
-  //   {
-  //     title: 'Moped',
-  //     price: 500,
-  //     inventory: 5,
-  //     description: 'Kind of a turd, but oh well',
-  //     img: "https://optibike.com/wp-content/uploads/2015/02/gas-moped.png"
-  //   },
-  //   {
-  //     title: 'Dirt Bike',
-  //     price: 1200,
-  //     inventory: 3,
-  //     description: 'Rides well, and is super cool! Perfect condition',
-  //     img: "http://worlds-super-bikes.com/wp-content/uploads/2015/12/list-of-best-dirt-bikes-724x506.jpg"
-  //   },
-  //   {
-  //     title: 'ATV',
-  //     price: 2100,
-  //     inventory: 2,
-  //     description: 'Brand New ATV, never been ridden',
-  //     img: "http://atv.com.vsassets.com/blog/wp-content/uploads/2016/02/Bad-Boy-Onslaught-550-4x4-Feature.jpg"
-  //   },
-  //   {
-  //     title: 'Moped',
-  //     price: 500,
-  //     inventory: 5,
-  //     description: 'Kind of a turd, but oh well',
-  //     img: "https://optibike.com/wp-content/uploads/2015/02/gas-moped.png"
-  //   },
-  //   {
-  //     title: 'Dirt Bike',
-  //     price: 1200,
-  //     inventory: 3,
-  //     description: 'Rides well, and is super cool! Perfect condition',
-  //     img: "http://worlds-super-bikes.com/wp-content/uploads/2015/12/list-of-best-dirt-bikes-724x506.jpg"
-  //   },
-  //   {
-  //     title: 'ATV',
-  //     price: 2100,
-  //     inventory: 2,
-  //     description: 'Brand New ATV, never been ridden',
-  //     img: "http://atv.com.vsassets.com/blog/wp-content/uploads/2016/02/Bad-Boy-Onslaught-550-4x4-Feature.jpg"
-  //   },
-  //   {
-  //     title: 'Moped',
-  //     price: 500,
-  //     inventory: 5,
-  //     description: 'Kind of a turd, but oh well',
-  //     img: "https://optibike.com/wp-content/uploads/2015/02/gas-moped.png"
-  //   },
-  //   {
-  //     title: 'Dirt Bike',
-  //     price: 1200,
-  //     inventory: 3,
-  //     description: 'Rides well, and is super cool! Perfect condition',
-  //     img: "http://worlds-super-bikes.com/wp-content/uploads/2015/12/list-of-best-dirt-bikes-724x506.jpg"
-  //   },
-  //   {
-  //     title: 'ATV',
-  //     price: 2100,
-  //     inventory: 2,
-  //     description: 'Brand New ATV, never been ridden',
-  //     img: "http://atv.com.vsassets.com/blog/wp-content/uploads/2016/02/Bad-Boy-Onslaught-550-4x4-Feature.jpg"
-  //   },
-  //   {
-  //     title: 'Moped',
-  //     price: 500,
-  //     inventory: 5,
-  //     description: 'Kind of a turd, but oh well',
-  //     img: "https://optibike.com/wp-content/uploads/2015/02/gas-moped.png"
-  //   }
-  //
-  // ];
-
   $scope.byRange = function (fieldName, minValue, maxValue) {
   if (minValue === undefined) minValue = Number.MIN_VALUE;
   if (maxValue === undefined) maxValue = Number.MAX_VALUE;
@@ -154,22 +88,55 @@ app.controller('mainCtrl', ['$scope','$http', function($scope, $http) {
 
   $scope.selectItem = function(item) {
 
+
     console.log(item)
 
     $scope.currentItem = item;
 
+    localStorage.currentItem = JSON.stringify(item);
+
   }
 
-  $scope.addToCart = function(item) {
-    $scope.shoppingCart.push(item);
-    $scope.cartTotal += item.price;
+  $scope.addToCart = function(frm, item) {
+
+    console.log(frm, item);
+
+    var id;
+
+    for (var i = 0; i < item.skus.data.length; i++) {
+      if (item.skus.data[i].attributes.color === frm.colorSelect) {
+        id = item.skus.data[i].id;
+      }
+    }
+
+    var e = {
+      skuId: id,
+      displayPrice: item.skus.data[0].price,
+      price: item.skus.data[0].price * 100,
+      totalPrice: frm.itemQuantity * item.skus.data[0].price,
+      quantity: frm.itemQuantity,
+      name: item.name
+    }
+
+    $scope.shoppingCart.push(e);
+
     console.log($scope.shoppingCart);
+
+    $scope.cartTotal += e.totalPrice;
+    //
+    localStorage.shoppingCart = JSON.stringify($scope.shoppingCart);
+    localStorage.shoppingCartTotal = $scope.cartTotal;
+
   }
 
   $scope.removeFromCart = function(item) {
     var i = $scope.shoppingCart.indexOf(item);
     $scope.shoppingCart.splice(i, 1);
-    $scope.cartTotal -= item.price;
+    $scope.cartTotal -= item.totalPrice;
+    // localStorage.shoppingCart.splice(i, 1);
+    localStorage.shoppingCartTotal -= item.totalPrice;
+    localStorage.shoppingCart = JSON.stringify($scope.shoppingCart);
+
     console.log($scope.shoppingCart);
   }
 

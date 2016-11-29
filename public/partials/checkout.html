@@ -1,7 +1,41 @@
-<div class="" ng-controller="checkoutCtrl">
+<div id="checkoutDisplay" ng-controller="checkoutCtrl">
 
-  <form id="payment-form" ng-submit="checkout(frm)">
+  <form id="payment-form" ng-submit="checkout(frm, shipping)">
     <span class="payment-errors"></span>
+
+    <div class="form-row">
+      <label>
+        <span>Email Address</span>
+        <input type="text" name="name" value="" ng-model="shipping.email">
+      </label>
+    </div>
+    <div class="form-row">
+      <label>
+        <span>Address</span>
+        <input type="text" name="name" value="" ng-model="frm.address_line1">
+      </label>
+    </div>
+    <div class="form-row">
+      <label>
+        <span>City</span>
+        <input type="text" name="name" value="" ng-model="frm.address_city">
+      </label>
+      <label>
+        <span>State</span>
+        <input type="text" name="name" value="" ng-model="frm.address_state">
+      </label>
+      <label>
+        <span>Zip</span>
+        <input type="text" name="name" value="" ng-model="frm.address_zip">
+      </label>
+    </div>
+    <div class="form-row">
+      <label>
+        <span>Name (As Seen On card)</span>
+        <input type="text" name="name" value="" ng-model="frm.name">
+        </label>
+      </label>
+    </div>
 
     <div class="form-row">
       <label>
@@ -14,9 +48,9 @@
       <label>
         <span>Expiration (MM/YY)</span>
         <input type="text" size="2" data-stripe="exp_month" ng-model="frm.exp_month">
+        <span> / </span>
+        <input type="text" size="2" data-stripe="exp_year" ng-model="frm.exp_year">
       </label>
-      <span> / </span>
-      <input type="text" size="2" data-stripe="exp_year" ng-model="frm.exp_year">
     </div>
 
     <div class="form-row">

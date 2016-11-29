@@ -1,0 +1,33 @@
+<div id="shoppingCart">
+
+  <div id="shoppingCartDisplay">
+
+    <div id="shoppingCartCell" ng-repeat="item in shoppingCart">
+
+      <a href="#">{{ item.name }}</a>
+
+      <p>
+        ${{ item.displayPrice }}
+      </p>
+
+      <h5>X {{ item.quantity }}</h5>
+
+      <p>
+        ${{ item.totalPrice }}
+      </p>
+
+      <button type="button" name="button" id="removeFromCart" ng-click="removeFromCart(item)">X</button>
+
+    </div>
+
+  </div>
+
+  <div id="shoppingCartFooter">
+
+    <h4>Cart Total: {{ cartTotal }}</h4>
+
+    <a href="/#/checkout">Checkout</a>
+
+  </div>
+
+</div>

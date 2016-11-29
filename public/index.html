@@ -3,12 +3,14 @@
 
   <link rel="stylesheet" href="/styles/main.scss" media="screen" title="no title">
 
+  <!-- <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Coda+Caption" /> -->
+
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-  <script
+  <!-- <script
   src="https://code.jquery.com/jquery-3.1.1.js"
   integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
-  crossorigin="anonymous"></script>
+  crossorigin="anonymous"></script> -->
 
   <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
 
@@ -29,24 +31,34 @@
 
 </head>
 <body ng-app='mainApp' ng-controller="mainCtrl">
+
   <header>
-    <h2>Motor Headz</h2>
 
-    <p ng-if="user.email !== 'undefined'">
-      Hello {{ user.email }}
-    </p>
+    <div class="headerHeader">
+      <img src="./images/motoheadzlogo.png" alt="" />
+    </div>
+
+    <div class="navBar">
+
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/#/explore">Explore</a></li>
+          <li ng-if="user.email === 'undefined' || !user.email"><a href="/#/signup">Sign Up</a></li>
+          <li ng-if="user.email === 'undefined' || !user.email"><a href="/#/signin">Sign In</a></li>
+          <li ng-if="user.email !== 'undefined' && user.email"><a href="/#/home">Log Out</a></li>
+        </ul>
 
 
-    <nav>
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/#/explore">Explore</a></li>
-        <li ng-if="user.email === 'undefined' || !user.email"><a href="/#/signup">Sign Up</a></li>
-        <li ng-if="user.email === 'undefined' || !user.email"><a href="/#/signin">Sign In</a></li>
-      </ul>
-    </nav>
+      </nav>
+
+      <a href="/#/shoppingCart">Cart</a>
+
+    </div>
+
   </header>
-  <main ui-view>
+
+  <main ui-view background-image="images/motoheadzlogo.jpg">
 
   </main>
   <footer>

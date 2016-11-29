@@ -11,13 +11,13 @@
 <div id="storeDisplay">
 
 
-  <div class="itemCells" ng-repeat="item in items | filter:search" ng-click="selectItem(item)">
+  <div class="itemCells" ng-repeat="item in items.items" ng-click="selectItem(item)">
 
     <div class="itemCellBody">
 
       <div class="itemImages">
 
-        <img ng-src="{{ item.image }}" alt="" />
+        <img ng-src="{{ item.images[0] }}" alt="" />
 
       </div>
 
@@ -26,15 +26,15 @@
         <div class="itemCellHeader" >
 
           <a href="/#/selectItem">
-            {{ item.make }} {{ item.model }}
+            {{ item.name }}
           </a>
 
           <p>
-            ${{ item.price }}
+            ${{ item.skus.data[0].price }}
           </p>
-          <p>
+          <!-- <p>
             Left in stock: {{ item.inStock }}
-          </p>
+          </p> -->
 
         </div>
 

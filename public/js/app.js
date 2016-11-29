@@ -30,6 +30,10 @@ app.config(function($stateProvider, $urlRouterProvider) {
           url: '/signin',
           templateUrl: './partials/signin.html'
       })
+      .state('shoppingCart', {
+          url: '/shoppingCart',
+          templateUrl: './partials/shoppingCart.html'
+      })
       .state('checkout', {
           url: '/checkout',
           templateUrl: './partials/checkout.html'
