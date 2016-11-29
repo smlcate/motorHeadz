@@ -26,7 +26,7 @@ exports.getItems = function(req, res, next) {
   };
 
   stripe.products.list(
-    { limit: 3 },
+    { limit: 10 },
     function(err, products) {
       // asynchronously called
       console.log(err,products);

@@ -7,7 +7,7 @@
       <a href="#">{{ item.name }}</a>
 
       <p>
-        ${{ item.price }}
+        ${{ item.displayPrice }}
       </p>
 
       <h5>X {{ item.quantity }}</h5>
@@ -15,6 +15,8 @@
       <p>
         ${{ item.totalPrice }}
       </p>
+
+      <button type="button" name="button" id="removeFromCart" ng-click="removeFromCart(item)">X</button>
 
     </div>
 

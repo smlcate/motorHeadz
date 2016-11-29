@@ -10,7 +10,9 @@ exports.submit = function(req, res, next) {
 // Get the credit card details submitted by the form
   var token = req.body.item; // Using Express
 
-  console.log(req.body);
+  console.log('Token: ' + token.id);
+
+  // console.log(req.body.shipping);
 
 
 
@@ -41,38 +43,41 @@ exports.submit = function(req, res, next) {
 
   }
 
-  stripe.charges.create({
-  amount: req.body.price * 100, // Amount in cents
-  currency: "usd",
-  source: req.body.item.id,
-  description: "Example charge"
-  }, function(err, charge) {
-    console.log(charge);
-    if (err && err.type === 'StripeCardError') {
-      // The card has been declined
-      console.log(err);
-      res.send('error')
-      return;
-    } else {
-      stripe.orders.create({
-        currency: 'usd',
-        items: items,
-        shipping: {
-          name: 'Sam Cate',
-          address: {
-            line1: '1234 Main Street',
-            city: 'San Francisco',
-            country: 'US',
-            postal_code: '94111'
-          }
-        },
-        email: 'avery.taylor@example.com'
+
+    stripe.orders.create({
+      currency: 'usd',
+      items: items,
+      shipping: {
+        name: req.body.item.card.name,
+        address: {
+          line1: req.body.item.card.address_line1,
+          city: req.body.item.card.address_city,
+          country: 'US',
+          postal_code: req.body.item.card.address_zip
+        }
+      },
+      email: 'smlcate@yahoo.com'
+    }, function(err, order) {
+      console.log('Order: ' + order, err);
+
+      // asynchronously called
+      return stripe.orders.pay(order.id, {
+        source: token.id // obtained with Stripe.js
       }, function(err, order) {
-        console.log(order, err);
         // asynchronously called
-    });
-    }
+        if (err && err !== null) {
+          console.log(err)
+          res.send('error')
+
+        } else {
+          // console.log(order)
+          res.send('success')
+        }
+
+      });
+
   });
+
   //
 
 

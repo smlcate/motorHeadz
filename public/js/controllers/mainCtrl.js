@@ -23,10 +23,16 @@ app.controller('mainCtrl', ['$scope','$http', function($scope, $http) {
 
     console.log(localStorage)
 
-    $scope.currentItem = JSON.parse(localStorage.currentItem);
+    if (localStorage.currentItem !== 'undefined' && localStorage.currentItem) {
+
+      $scope.currentItem = JSON.parse(localStorage.currentItem);
+
+    }
+
 
     if (localStorage.shoppingCart !== 'undefined' && localStorage.shoppingCart) {
       $scope.shoppingCart = JSON.parse(localStorage.shoppingCart);
+      $scope.cartTotal = localStorage.shoppingCartTotal;
 
     }
 
@@ -105,7 +111,8 @@ app.controller('mainCtrl', ['$scope','$http', function($scope, $http) {
 
     var e = {
       skuId: id,
-      price: item.skus.data[0].price,
+      displayPrice: item.skus.data[0].price,
+      price: item.skus.data[0].price * 100,
       totalPrice: frm.itemQuantity * item.skus.data[0].price,
       quantity: frm.itemQuantity,
       name: item.name
@@ -114,15 +121,22 @@ app.controller('mainCtrl', ['$scope','$http', function($scope, $http) {
     $scope.shoppingCart.push(e);
 
     console.log($scope.shoppingCart);
+
+    $scope.cartTotal += e.totalPrice;
     //
     localStorage.shoppingCart = JSON.stringify($scope.shoppingCart);
+    localStorage.shoppingCartTotal = $scope.cartTotal;
 
   }
 
   $scope.removeFromCart = function(item) {
     var i = $scope.shoppingCart.indexOf(item);
     $scope.shoppingCart.splice(i, 1);
-    $scope.cartTotal -= item.price;
+    $scope.cartTotal -= item.totalPrice;
+    // localStorage.shoppingCart.splice(i, 1);
+    localStorage.shoppingCartTotal -= item.totalPrice;
+    localStorage.shoppingCart = JSON.stringify($scope.shoppingCart);
+
     console.log($scope.shoppingCart);
   }
 
